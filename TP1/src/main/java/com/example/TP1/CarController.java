@@ -31,4 +31,16 @@ public class CarController {
         }
         throw new CarNotFoundException(plateNumber);
     }
+
+    @PutMapping("/cars/{plateNumber}")
+    public void rentOrGetBack(@PathVariable("plateNumber") String plateNumber,
+                              @RequestParam("rent") boolean rent, 
+                              @RequestBody(required = false) Dates dates) {
+        Car car = aCar(plateNumber);
+        if (rent) {
+            car.setRentalDates(dates);
+        } else {
+            car.setRentalDates(null);
+        }
+    }
 }

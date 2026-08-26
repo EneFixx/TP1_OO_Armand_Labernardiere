@@ -4,6 +4,8 @@ public class Car {
     private String plateNumber;
     private String brand;
     private double price;
+    private Dates rentalDates;
+
 
     public Car(String plateNumber, String brand, double price) {
         this.plateNumber = plateNumber;
@@ -21,5 +23,17 @@ public class Car {
 
     public double getPrice() {
         return price;
+    }
+
+    public Dates getRentalDates() {
+        return rentalDates;
+    }
+
+    public void setRentalDates(Dates rentalDates) {
+        this.rentalDates = rentalDates;
+    }
+
+    public boolean isRented() {
+        return rentalDates != null;
     }
 }
